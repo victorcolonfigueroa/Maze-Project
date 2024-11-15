@@ -1,6 +1,6 @@
 # *Project Name: The Maze*
 
-*_This repository contains code for the Maze Project, done as the Foundations' final project in the ALX Software Engineering_*
+*_This repository contains code for the Maze Project, done as the Foundations' final project in the Software Engineering_*
 
 <br>
 
