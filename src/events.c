@@ -120,3 +120,40 @@ int maze_loop(SDL_Instance *instance)
 	}
 	return (running);
 }
+
+int maze_loop(SDL_Instance *instance)
+{
+    SDL_Event ev;
+    int running = 0;
+    uint32_t window_flags;
+    while (SDL_PollEvent(&ev) != 0)
+    {
+        if (ev.type == SDL_QUIT)
+            running = 1;
+        if (ev.type == SDL_KEYDOWN && ev.key.keysym.sym == SDLK_ESCAPE)
+            running = 1;
+        if (ev.type == SDL_KEYDOWN && ev.key.keysym.sym == SDLK_f)
+        {
+            window_flags = SDL_GetWindowFlags(instance->window);
+            if (window_flags && SDL_WINDOW_FULLSCREEN)
+                SDL_SetWindowFullscreen(instance->window, SDL_FALSE);
+            else
+                SDL_SetWindowFullscreen(instance->window, SDL_WINDOW_FULLSCREEN);
+        }
+		if (ev.type == SDL_KEYDOWN && ev.key.keysym.sym == SDLK_m)
+		{
+			instance->show_mini_map = !instance->show_mini_map;
+		}
+	}
+
+	// Update rain particles
+	update_rain_particles();
+
+	// Define player_x and player_y
+	int player_x = (int)pos.x;
+	int player_y = (int)pos.y;
+
+	update_mini_map(player_x, player_y);
+
+    return (running);
+}

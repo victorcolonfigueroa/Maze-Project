@@ -17,6 +17,7 @@ typedef struct SDL_Instance
 	/* SDL_Surface *textures[TEX_COUNT]; */
 	SDL_Texture *texture;
 	int textured;
+	int show_mini_map;
 } SDL_Instance;
 
 
@@ -33,5 +34,28 @@ typedef struct point
 	double y;
 } point;
 
+
+
+typedef struct
+{
+	float x, y;
+	float speed;
+} RainParticle;
+
+typedef struct
+{
+	int width, height;
+	int **map_data;
+} MiniMap;
+
+struct SDL_Instance {
+	SDL_Window *window;
+	SDL_Renderer *renderer;
+	SDL_Texture *texture;
+	SDL_Texture *weapon1_texture;
+	SDL_Texture *weapon2_texture;
+	int textured;
+	int show_mini_map;
+};
 
 #endif /* STRUCTS_H */
