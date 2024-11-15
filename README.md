@@ -18,7 +18,7 @@ If libsdl2 is not installed, on Ubuntu run
 To compile the program type these commands on the terminal
 
 >  git clone https://github.com/DadMed/The_Maze.git <br>
->  cd alx-maze_project <br>
+>  cd maze_project <br>
 >  gcc src/*.c -Wall -Werror -Wextra -pedantic -lm -lSDL2main -lSDL2 -lSDL2_image -o maze <br>
 
 or alternatively, run
